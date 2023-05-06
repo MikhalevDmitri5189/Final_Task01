@@ -5,18 +5,29 @@
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
 
+
+
+// Описание решения:
+
+// Приглашение к вводу данных с проверкой корректного ввода символов.
+
+
 Console.Write("Введите количество элементов массива:");
-int m = int.Parse(Console.ReadLine());
+int m = int.Parse(Console.ReadLine()!);
 string[] stringArray = new string[m];
 void array(string[] stringArray)
 {
     for (int i = 0; i < stringArray.Length; i++)
     {
         Console.WriteLine($"Введите {i + 1} элемент массива");
-        stringArray[i] = Console.ReadLine();
+        stringArray[i] = Console.ReadLine()!;
     }
+
 }
-string[] symbol(string[] stringArray)
+
+// Функция counting — вначале считает количество элементов массива с тремя и менее символами. Затем создает массив нужной размерностью и вносит данные из введенного массива в результат функции.
+
+string[] counting(string[] stringArray)
 {
     int n = 0;
     for (int i = 0; i < stringArray.Length; i++)
@@ -36,6 +47,8 @@ string[] symbol(string[] stringArray)
     }
     return rez;
 }
+
+//  Процедура printA выводит на экран значение массива с квадратными скобками в начале и в конце разделяя элементы запятыми.
 void printA(string[] stringArray)
 {
     Console.Write("[");
@@ -46,4 +59,4 @@ void printA(string[] stringArray)
     Console.Write("]");
 }
 array(stringArray);
-printA(symbol(stringArray));
+printA(counting(stringArray));
